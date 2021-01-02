@@ -10,6 +10,9 @@ MIT
 @angular/router
 MIT
 
+@angular/service-worker
+MIT
+
 @popperjs/core
 MIT
 The MIT License (MIT)
