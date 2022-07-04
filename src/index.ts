@@ -69,7 +69,7 @@ ready(() => {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.globalAlpha = 1.0;
 
-        ctx.drawImage(logo, percent(50, canvas.width - (logo.width / 2)), percent(5, canvas.height))
+        ctx.drawImage(logo, percent(50, canvas.width - (logo.width+10)), percent(5, canvas.height))
         ctx.fillStyle = '#FFFFFF';
         ctx.font = "900 40px Merriweather";
         ctx.fillText('Tolulope Olagunju', percent(50, canvas.width - ('Tolulope Olagunju'.length * 23)), percent(40, canvas.height));
