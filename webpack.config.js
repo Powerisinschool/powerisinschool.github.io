@@ -1,8 +1,14 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.ts',
+    entry: {
+        index: './src/index.ts',
+      },
     devtool: 'inline-source-map',
+    devServer: {
+        static: './dist',
+    },
     mode: 'development',
     module: {
         rules: [
@@ -20,8 +26,17 @@ module.exports = {
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'Tolulope Olagunju',
+        }),
+    ],
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
+        clean: true,
+    },
+    optimization: {
+        runtimeChunk: 'single',
     },
 };
