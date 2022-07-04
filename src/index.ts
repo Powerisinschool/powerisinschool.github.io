@@ -11,4 +11,6 @@ ready(() => {
     container.style.width = '100%';
     container.style.height = '100%';
     container.style.backgroundColor = '#020307';
+
+    var header = document.createElement('header');
 })
