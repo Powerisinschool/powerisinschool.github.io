@@ -8,6 +8,11 @@ bg.src = Source;
 var logo = new Image();
 logo.src = Hello;
 
+var contact = {
+    width: 100,
+    height: 40,
+};
+
 function percent(percentage: number, value: number): number {
     return (percentage / 100) * value
 }
@@ -20,7 +25,7 @@ function ready(fn: any) {
     }
 }
 
-ready(() => {
+ready(async () => {
     // let container = document.createElement('div');
     // container.style.width = '100%';
     // container.style.height = document.documentElement.clientHeight + 'px';
@@ -62,14 +67,18 @@ ready(() => {
         const xOffset = newWidth > canvas.width ? (canvas.width - newWidth) / 2 : 0;
         const yOffset = newHeight > canvas.height ? (canvas.height - newHeight) / 2 : 0;
 
+        ctx.filter = 'blur(3px)';
+
         ctx.drawImage(bg, xOffset, yOffset, newWidth, newHeight);
 
+        ctx.filter = 'blur(0)';
+
         ctx.fillStyle = '#020307';
-        ctx.globalAlpha = 0.5;
+        ctx.globalAlpha = 0.45;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.globalAlpha = 1.0;
 
-        ctx.drawImage(logo, percent(50, canvas.width - (logo.width+10)), percent(5, canvas.height))
+        ctx.drawImage(logo, percent(50, canvas.width - (logo.width+10)), percent(5, canvas.height));
         ctx.fillStyle = '#FFFFFF';
         ctx.font = "900 40px Merriweather";
         ctx.fillText('Tolulope Olagunju', percent(50, canvas.width - ('Tolulope Olagunju'.length * 23)), percent(40, canvas.height));
@@ -79,8 +88,36 @@ ready(() => {
         ctx.fillStyle = '#FFFFFF';
         ctx.font = "300 40px Merriweather";
         ctx.fillText('Based In NG', percent(50, canvas.width - ('Based In NG'.length * 23)), percent(66, canvas.height));
+
+        // ctx.drawImage(logo, percent(50, canvas.width - (logo.width+10)), percent(5, canvas.height));
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(percent(80, canvas.width), percent(5, canvas.height), contact.width, contact.height);
+        ctx.fillStyle = '#000000';
+        ctx.font = "400 16px Merriweather";
+        ctx.fillText('Contact Me', percent(80, canvas.width) + 5, percent(5, canvas.height) + (contact.height/2)+5);
         window.requestAnimationFrame(draw);
     }
+
+    // Event listeners need to be outside the draw function to avoid repeated calling!
+
+    canvas.addEventListener('mousemove', (e) => {
+        if ((e.clientX > percent(80, canvas.width) && e.clientX < (percent(80, canvas.width) + contact.width)) && (e.clientY > percent(5, canvas.height) && e.clientY < percent(5, canvas.height) + contact.height)) {
+            if (canvas.style.cursor === 'pointer') {
+                return
+            }
+            canvas.style.cursor = 'pointer';
+        } else {
+            canvas.style.cursor = 'default';
+        }
+    })
+
+    canvas.addEventListener('click', (e) => {
+        e.preventDefault();
+        if ((e.clientX > percent(80, canvas.width) && e.clientX < (percent(80, canvas.width) + contact.width)) && (e.clientY > percent(5, canvas.height) && e.clientY < percent(5, canvas.height) + contact.height)) {
+            window.location.href = 'https://g.dev/tolu_olagunju';
+        }
+        return
+    })
 
     draw();
 })
