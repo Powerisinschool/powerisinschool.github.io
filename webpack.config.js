@@ -30,15 +30,9 @@ module.exports = {
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            title: 'Tolulope Olagunju',
-        }),
-    ],
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        clean: true,
     },
     optimization: {
         runtimeChunk: 'single',
