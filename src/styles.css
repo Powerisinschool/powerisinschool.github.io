@@ -1298,3 +1298,7 @@ body:after {
     transition: none !important;
     filter: none !important;
 }
+
+* {
+    user-select: none;
+}
