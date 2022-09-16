@@ -1271,8 +1271,9 @@ hr:before {
     }
 }
 
-body {
+html, body {
     overflow: auto !important;
+    margin: 0;
 }
 
 body:after {
