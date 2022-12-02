@@ -899,6 +899,7 @@ hr:before {
 
 #icons01 a svg {
     fill: #325D80;
+    color: #325D80;
 }
 
 #icons01 a {
@@ -911,6 +912,7 @@ hr:before {
 
 #icons01 a:hover svg {
     fill: #B89A8F !important;
+    color: #B89A8F !important;
 }
 
 #icons01 li a+svg {
