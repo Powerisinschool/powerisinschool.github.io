@@ -678,7 +678,7 @@ p mark {
 
 #text02 {
     color: rgba(0, 0, 0, 0.702);
-    font-family: 'Lobster', 'Fraunces', serif;
+    font-family: 'Caveat', 'Fraunces', serif;
     letter-spacing: -0.025rem;
     width: 100%;
     font-size: 3.75em;
@@ -792,7 +792,7 @@ hr:before {
     line-height: 3.5rem;
     padding: 0 1.75rem;
     vertical-align: middle;
-    font-family: 'Lobster', 'Fraunces', serif;
+    font-family: 'Caveat', 'Fraunces', serif;
     font-size: 1em;
     font-weight: 300;
     border-radius: 0.375rem;
