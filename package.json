@@ -19,5 +19,6 @@
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.7.4"
-  }
+  },
+  "packageManager": "pnpm@12.16.1"
 }
