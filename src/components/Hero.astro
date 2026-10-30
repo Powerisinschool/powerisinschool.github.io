@@ -1,0 +1,61 @@
+---
+import Button from './Button.astro';
+import TerminalCard from './TerminalCard.astro';
+---
+
+<section id="top" class="hero container">
+  <div class="hero-content">
+    <p class="eyebrow">Computer Science · University of London · Lagos</p>
+    <h1>I like knowing what happens <em>beneath</em> the surface.</h1>
+    <p class="lead">I’m Tolu. I write kernels, rendering engines and concurrent servers, mostly in C++, Rust and Go, because I want to understand the machine rather than just use it.</p>
+    <div class="actions">
+      <Button href="#work" variant="primary">See the work</Button>
+      <Button href="https://github.com/Powerisinschool" variant="secondary">GitHub</Button>
+    </div>
+  </div>
+  <TerminalCard />
+</section>
+
+<style>
+  .hero {
+    padding-top: 96px;
+    padding-bottom: 112px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 56px;
+    align-items: center;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .eyebrow {
+    margin-bottom: 24px;
+  }
+
+  .lead {
+    margin-top: 32px;
+    max-width: 560px;
+    font-size: var(--fs-lead);
+  }
+
+  .actions {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      padding-top: 40px;
+      padding-bottom: 64px;
+    }
+    
+    .actions {
+      flex-direction: column;
+    }
+  }
+</style>
