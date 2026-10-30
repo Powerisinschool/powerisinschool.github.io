@@ -1,7 +1,7 @@
 export const projects = [
   {
     title: "Swish Kernel",
-    stack: "C++ · C · Assembly · CMake",
+    stack: "C++ · C · CMake · Limine · Flanterm",
     href: "https://github.com/Powerisinschool/swish_kernel",
     summary:
       "A 64-bit x86-64 bare-metal kernel with a graphical compositor, input handling, a custom heap allocator, a virtual filesystem and an interactive shell.",
