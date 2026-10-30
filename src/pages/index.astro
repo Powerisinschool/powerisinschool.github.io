@@ -12,6 +12,9 @@ import { timeline } from "../data/timeline";
 
 import StackGrid from "../components/StackGrid.astro";
 import { stack } from "../data/stack.js";
+
+import Credentials from "../components/Credentials.astro";
+import { credentials } from "../data/credentials.js";
 ---
 
 <BaseLayout>
@@ -47,6 +50,16 @@ import { stack } from "../data/stack.js";
       />
 
       <StackGrid stack={stack} />
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <SectionHeading 
+        eyebrow="04 / credentials" 
+        heading="Certified, for what it\u2019s worth."
+      />
+
+      <Credentials items={credentials} />
     </div>
   </section>
 </BaseLayout>
