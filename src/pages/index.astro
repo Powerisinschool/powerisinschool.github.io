@@ -1,9 +1,14 @@
 ---
 import BaseLayout from "../layouts/Base.astro";
+
 import Hero from "../components/Hero.astro";
+
 import SectionHeading from "../components/SectionHeading.astro";
 import ProjectRow from "../components/ProjectRow.astro";
 import { projects } from "../data/projects.js";
+
+import Timeline from "../components/Timeline.astro";
+import { timeline } from "../data/timeline";
 ---
 
 <BaseLayout>
@@ -21,4 +26,14 @@ import { projects } from "../data/projects.js";
       </div>
     </div>
   </section>
+  <section id="about" class="section">
+  <div class="container">
+    <SectionHeading 
+      eyebrow="02 / how I got here" 
+      heading="From a target game in JUST BASIC to a kernel of my own." 
+    />
+    
+    <Timeline items={timeline} />
+  </div>
+</section>
 </BaseLayout>

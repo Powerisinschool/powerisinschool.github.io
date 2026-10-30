@@ -1,0 +1,51 @@
+---
+interface TimelineItem {
+  label: string;
+  text: string;
+}
+
+interface Props {
+  items: TimelineItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="timeline-grid">
+  {items.map((item) => (
+    <div class="timeline-item">
+      <p class="timeline-label">{item.label}</p>
+      <p class="timeline-text">{item.text}</p>
+    </div>
+  ))}
+</div>
+
+<style>
+  .timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 40px;
+  }
+
+  .timeline-item {
+    border-top: 2px solid var(--line-muted);
+    padding-top: 20px;
+  }
+
+  /* The first item uses the accent color for its top rule */
+  .timeline-item:first-child {
+    border-top-color: var(--accent);
+  }
+
+  .timeline-label {
+    margin: 0 0 8px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--accent);
+  }
+
+  .timeline-text {
+    margin: 0;
+    color: var(--text-body);
+  }
+</style>
