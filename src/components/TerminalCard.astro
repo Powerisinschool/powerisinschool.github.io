@@ -1,0 +1,49 @@
+<div class="terminal-card">
+  <div class="window-controls" aria-hidden="true">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  
+  <div class="command-line"><span class="prompt">$</span> whoami</div>
+  <div class="output">tolulope olagunju</div>
+  
+  <div class="command-line"><span class="prompt">$</span> cat focus.txt</div>
+  <div class="output">systems programming<br>concurrent architecture<br>backend engineering</div>
+  
+  <div class="command-line"><span class="prompt">$</span> ls ~/projects</div>
+  <div class="output">swish_kernel/  blink-rs/  webrtc-sfu/</div>
+  
+  <div class="command-line"><span class="prompt">$</span> <span class="cursor">_</span></div>
+</div>
+
+<style>
+  .terminal-card {
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 2;
+    color: var(--text-muted);
+  }
+  .window-controls {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--line-muted);
+  }
+  .prompt {
+    color: var(--accent);
+    margin-right: 8px;
+  }
+  .output {
+    color: var(--text);
+  }
+</style>
