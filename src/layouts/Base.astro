@@ -1,0 +1,36 @@
+---
+import '@fontsource/instrument-serif/400.css';
+import '@fontsource/instrument-serif/400-italic.css';
+import '@fontsource-variable/inter';
+import '@fontsource-variable/jetbrains-mono';
+import '../styles/global.css';
+
+const { title = "Tolulope Olagunju: Systems Programmer" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <!-- Add your meta descriptions and favicon here later -->
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    
+    <header style="max-width:1160px;margin:0 auto;padding:28px 32px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center">
+      <a href="#top" style="text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:15px;color:#ECE9E3">tolu<span style="color:var(--accent)">@</span>olagunju.ng</a>
+      <nav style="display:flex;flex-wrap:wrap;gap:8px 28px;font-family:'JetBrains Mono',monospace;font-size:14px;color:#A8A59E">
+        <a href="#about" style="text-decoration:none">about</a>
+        <a href="#work" style="text-decoration:none">work</a>
+        <a href="#stack" style="text-decoration:none">stack</a>
+        <a href="#contact" style="text-decoration:none">contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+  </body>
+</html>
