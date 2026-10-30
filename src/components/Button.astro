@@ -1,3 +1,52 @@
-<button>
-    <slot />
-</button>
+---
+interface Props {
+  href: string;
+  variant: 'primary' | 'secondary';
+}
+
+const { href, variant } = Astro.props;
+---
+
+<a href={href} class={`button ${variant}`}>
+  <slot />
+</a>
+
+<style>
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 26px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+  }
+
+  .primary {
+    background: var(--accent);
+    color: var(--on-accent);
+    font-weight: 600;
+  }
+
+  .primary:hover {
+    background: #F4B35B; /* Lightened by ~8% from #F2A33A */
+    color: var(--on-accent);
+  }
+
+  .secondary {
+    border: 1px solid var(--line-muted);
+    color: inherit;
+  }
+
+  .secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  @media (max-width: 600px) {
+    .button {
+      width: 100%;
+    }
+  }
+</style>
