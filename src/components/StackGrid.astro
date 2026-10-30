@@ -1,0 +1,44 @@
+---
+interface StackItem {
+  label: string;
+  text: string;
+}
+
+interface Props {
+  stack: StackItem[];
+}
+
+const { stack } = Astro.props;
+---
+
+<div class="stack-grid">
+  {
+    stack.map((item) => (
+      <div class="stack-item">
+        <p class="stack-label">{item.label}</p>
+        <p class="stack-text">{item.text}</p>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+  }
+
+  .stack-label {
+    margin: 0 0 14px;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    color: var(--text-muted);
+  }
+
+  .stack-text {
+    color: var(--text);
+    font-size: var(--fs-lead);
+  }
+</style>
