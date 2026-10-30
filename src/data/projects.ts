@@ -16,7 +16,7 @@ export const projects = [
     stack: "Rust · html5ever · cssparser · tiny-skia",
     href: "https://github.com/Powerisinschool/blink-rs",
     summary:
-      "An experimental HTML/CSS rendering engine modelled on Chromium’s constraint-driven LayoutNG pipeline.",
+      "An experimental HTML/CSS rendering engine modelled on Chromium\u2019s constraint-driven LayoutNG pipeline.",
     bullets: [
       "Arena-allocated DOM using generational index handles in flat, contiguous memory, with no <code>Rc&lt;RefCell&gt;</code> pointer chasing.",
       "Custom CSS specificity matching, cascading, and a recursive layout pass that resolves constraint spaces into box fragments.",
