@@ -15,6 +15,8 @@ import { stack } from "../data/stack.js";
 
 import Credentials from "../components/Credentials.astro";
 import { credentials } from "../data/credentials.js";
+
+import Contact from "../components/Contact.astro";
 ---
 
 <BaseLayout>
@@ -62,4 +64,6 @@ import { credentials } from "../data/credentials.js";
       <Credentials items={credentials} />
     </div>
   </section>
+
+  <Contact />
 </BaseLayout>

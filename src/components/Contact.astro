@@ -1,0 +1,94 @@
+---
+import Button from './Button.astro';
+import { profile } from '../data/profile.ts';
+
+const year = new Date().getFullYear();
+---
+
+<section id="contact" class="contact-section">
+  <div class="container">
+    <h2>Let&#x2019;s build something <em>low-level</em>.</h2>
+    
+    <p class="lead">
+      Open to internships, collaborations and conversations about systems, Rust and how things really work.
+    </p>
+    
+    <div class="actions">
+      <Button href={`mailto:${profile.email}`} variant="primary">
+        <span class="btn-text">{profile.email}</span>
+      </Button>
+      <Button href={profile.github} variant="secondary">
+        <span class="btn-text">github.com/Powerisinschool</span>
+      </Button>
+      <Button href={profile.linkedin} variant="secondary">
+        LinkedIn
+      </Button>
+    </div>
+    
+    <footer class="footer">
+      <p>&copy; {year} {profile.name} &middot; {profile.location}</p>
+    </footer>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    padding-top: 120px;
+    padding-bottom: 56px;
+  }
+
+  h2 {
+    font-size: var(--fs-display);
+    line-height: 1;
+    max-width: 900px;
+  }
+
+  .lead {
+    margin-top: 32px;
+    max-width: 560px;
+    font-size: var(--fs-lead);
+  }
+
+  .actions {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* Ensures long strings break cleanly on 320px screens */
+  .btn-text {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .footer {
+    margin-top: 96px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+
+  .footer p {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 600px) {
+    .contact-section {
+      padding-top: 72px;
+      padding-bottom: 40px;
+    }
+    
+    .actions {
+      flex-direction: column;
+    }
+
+    .footer {
+      margin-top: 64px;
+      padding-top: 20px;
+      font-size: 12px;
+    }
+  }
+</style>
