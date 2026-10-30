@@ -1,0 +1,89 @@
+---
+interface Props {
+  title: string;
+  stack: string;
+  href?: string;
+  summary: string;
+  bullets: string[];
+}
+
+const { title, stack, href, summary, bullets } = Astro.props;
+---
+
+<article class="project-row">
+  <div class="meta">
+    <p class="stack">{stack}</p>
+    <h3>{title}</h3>
+    {
+      href && (
+        <a href={href} class="link">
+          View on GitHub &rarr;
+        </a>
+      )
+    }
+  </div>
+  <div class="details">
+    <p class="summary">{summary}</p>
+    <ul class="bullets">
+      {bullets.map((bullet) => <li set:html={bullet} />)}
+    </ul>
+  </div>
+</article>
+
+<style>
+  .project-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px 64px;
+    padding: 48px 0;
+    border-top: 1px solid var(--line-strong);
+  }
+
+  /* The last project row requires a bottom border */
+  .project-row:last-of-type {
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  .stack {
+    margin: 0 0 12px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  h3 {
+    margin: 0 0 20px;
+    transition: color 150ms ease;
+  }
+
+  .link {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .summary {
+    margin: 0 0 20px;
+    color: var(--text-body);
+  }
+
+  .bullets {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--text-body);
+  }
+
+  .bullets li {
+    margin-bottom: 8px;
+  }
+
+  .bullets li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Optional hover enhancement from the design spec */
+  .project-row:hover h3 {
+    color: var(--accent);
+  }
+</style>

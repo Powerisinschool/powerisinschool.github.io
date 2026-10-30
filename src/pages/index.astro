@@ -1,8 +1,24 @@
 ---
 import BaseLayout from "../layouts/Base.astro";
 import Hero from "../components/Hero.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import ProjectRow from "../components/ProjectRow.astro";
+import { projects } from "../data/projects.js";
 ---
 
 <BaseLayout>
-  <Hero />
+	<Hero />
+  <section id="work" class="section section--raised">
+    <div class="container">
+      <SectionHeading
+        eyebrow="01 / selected work"
+        heading="Three projects, built from first principles."
+      />
+      <div class="projects-list">
+        {projects.map(project => (
+          <ProjectRow {...project} />
+        ))}
+      </div>
+    </div>
+  </section>
 </BaseLayout>

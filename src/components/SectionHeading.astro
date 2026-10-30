@@ -1,0 +1,37 @@
+---
+interface Props {
+  eyebrow: string;
+  heading: string;
+}
+
+const { eyebrow, heading } = Astro.props;
+---
+
+<div class="heading-block">
+  <p class="eyebrow">{eyebrow}</p>
+  <h2 set:html={heading} />
+</div>
+
+<style>
+  .heading-block {
+    margin-bottom: 64px;
+  }
+
+  .eyebrow {
+    margin: 0 0 16px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--accent);
+  }
+
+  h2 {
+    margin: 0;
+    max-width: 760px;
+  }
+
+  @media (max-width: 600px) {
+    .heading-block {
+      margin-bottom: 40px;
+    }
+  }
+</style>
