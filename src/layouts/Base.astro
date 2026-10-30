@@ -7,7 +7,35 @@ import "../styles/global.css";
 
 import Header from "../components/Header.astro";
 
-const { title = "Tolulope Olagunju: Systems Programmer" } = Astro.props;
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://tolu.olagunju.ng');
+
+const {
+    title = "Tolulope Olagunju: Systems Programmer",
+    description = "Hi, I'm Tolu!",
+    image = "/og.jpg"
+} = Astro.props;
+
+const ogImageURL = new URL(image, canonicalURL);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Tolulope Jonathan Olagunju",
+  "url": "https://tolu.olagunju.ng",
+  "email": "tolu@olagunju.ng",
+  "jobTitle": "Systems Programmer",
+  "sameAs": [
+    "https://github.com/Powerisinschool",
+    "https://www.linkedin.com/in/tolu-olagunju/",
+    "https://g.dev/tolu-olagunju",
+  ]
+};
 ---
 
 <!doctype html>
@@ -15,8 +43,29 @@ const { title = "Tolulope Olagunju: Systems Programmer" } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+
+    <!-- Twitter / X -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImageURL} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to content</a>
