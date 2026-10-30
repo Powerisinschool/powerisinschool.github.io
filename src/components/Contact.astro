@@ -18,7 +18,7 @@ const year = new Date().getFullYear();
         <span class="btn-text">{profile.email}</span>
       </Button>
       <Button href={profile.github} variant="secondary">
-        <span class="btn-text">github.com/Powerisinschool</span>
+        <span class="btn-text">github.com<span class="keep-together">/Powerisinschool</span></span>
       </Button>
       <Button href={profile.linkedin} variant="secondary">
         LinkedIn
@@ -60,6 +60,10 @@ const year = new Date().getFullYear();
   .btn-text {
     overflow-wrap: anywhere;
     word-break: break-word;
+  }
+
+  .keep-together {
+    white-space: nowrap;
   }
 
   .footer {
